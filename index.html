@@ -5,46 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="classic two-person game rock paper scissors ">
+    <meta name="description" content="Classic two-player game Rock Paper Scissors. Play against the computer, first to 5 wins.">
     <meta name="keywords" content="classic, game, rock, paper, scissors">
     <meta name="author" content="Aleksandr Denis">
-    <!--Link to stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rock Paper Scissors</title>
 </head>
-<!--Helo-->
+
 <body>
-    <div class="main-container">
-        <div class="game-area">
-            <!--Headings-->
-            <div class="heading-container">
-                <h1 class="typing">Rock Paper Scissors</h1>
-            </div>
+    <main class="main-container">
+        <section class="game-area" aria-labelledby="title">
+            <header class="game-header">
+                <h1 id="title">Rock Paper Scissors</h1>
+                <button id="mute" class="icon-btn" type="button" aria-pressed="false" aria-label="Mute sound">Sound on</button>
+            </header>
+
+            <p class="subtitle">First to <span id="target">5</span> wins the match.</p>
+
             <!--Score area-->
             <div class="score-container">
-                <p class="score">Player <span id="player-score">0</span></p>
-                <p class="score">Computer <span id="comp-score">0</span></p>
+                <div class="score-card">
+                    <span class="score-label">You</span>
+                    <span class="score-value" id="player-score">0</span>
+                </div>
+                <div class="round-info">Round <span id="round">1</span></div>
+                <div class="score-card">
+                    <span class="score-label">Computer</span>
+                    <span class="score-value" id="comp-score">0</span>
+                </div>
             </div>
-            <div class="heading-container">
-                <h2>Computers Choice:<span id="comp-choice"></span></h2>
-                <h2>Your Choice:<span id="player-choice"></span></h2>
+
+            <!--Choices shown after each round-->
+            <div class="arena">
+                <div class="choice-card">
+                    <span class="choice-label">Your choice</span>
+                    <span class="choice-icon" id="player-icon" aria-hidden="true">?</span>
+                    <span class="choice-name" id="player-choice">-</span>
+                </div>
+                <span class="vs">vs</span>
+                <div class="choice-card">
+                    <span class="choice-label">Computer's choice</span>
+                    <span class="choice-icon" id="comp-icon" aria-hidden="true">?</span>
+                    <span class="choice-name" id="comp-choice">-</span>
+                </div>
             </div>
+
+            <!--Game outcome-->
+            <h2 id="result" class="result" aria-live="polite">Make your choice!</h2>
+
             <!--Player option buttons-->
             <div class="player-options">
-                <button id="rock" class="player-btn"></button>
-                <button id="paper" class="player-btn"></button>
-                <button id="scissors" class="player-btn"></button>
+                <button id="rock" class="player-btn" type="button" aria-label="Rock"><span class="key">R</span></button>
+                <button id="paper" class="player-btn" type="button" aria-label="Paper"><span class="key">P</span></button>
+                <button id="scissors" class="player-btn" type="button" aria-label="Scissors"><span class="key">S</span></button>
             </div>
-            <!--Game outcome-->
-            <h2 id="result">Make your choice!</h2>
-           <div class="reset-container">
-                <button id="reset">Start Over</button>
+            <p class="hint">Click a button or press R, P or S.</p>
+
+            <div class="reset-container">
+                <button id="reset" type="button">Start over</button>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
     <!--Sound for game-->
-    <audio src="#" id="sound"></audio>
-    <!--Link to javascript-->
+    <audio id="sound" preload="auto"></audio>
     <script src="assets/js/script.js"></script>
 </body>
 
